@@ -141,9 +141,17 @@ class _SubmitButtonState extends State<SubmitButton> {
         Fluttertoast.showToast(msg: 'Wrong password provided for that user.');
       } else if (e.code == "network-request-failed") {
         Fluttertoast.showToast(msg: 'No Internet Connectivity.');
+        Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => NewsPage(
+            category: category,
+          ),
+        ),
+      );
       } else {
-        print(e);
+        print(e.code);
       }
+      
     }
   }
 

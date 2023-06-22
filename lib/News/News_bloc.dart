@@ -14,9 +14,8 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   NewsBloc({required this.newsRepository, required this.category})
       : super(NewsState(category: category)) {
     on<NewsFetched>(
-      (event, emit) {
-        _onNewsFetched(event, emit, category);
-      },
+        _onNewsFetched
+      
     );
     on<NewsRefreshed>(_onNewsRefreshed);
   }
@@ -25,8 +24,8 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   final String category;
 
   Future<void> _onNewsFetched(
-      NewsFetched event, Emitter<NewsState> emit, String category) async {
-    print(category);
+      NewsFetched event, Emitter<NewsState> emit) async {
+    // print(category);
     emit(state.copyWith(status: NewsStatus.loading));
 
     try {

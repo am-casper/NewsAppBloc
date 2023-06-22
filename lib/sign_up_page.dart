@@ -184,10 +184,20 @@ class _SignUpButtonState extends State<SignUpButton> {
         } else if (e.code == 'email-already-in-use') {
           Fluttertoast.showToast(
               msg: 'The account already exists for that email.');
-        }
-      } catch (e) {
+        } else if (e.code == "network-request-failed") {
+        Fluttertoast.showToast(msg: 'No Internet Connectivity.');
+        Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => NewsPage(
+            category: category,
+          ),
+        ),
+      );
+      } else {
         print(e);
       }
+      
+      } 
     }
   }
 }
