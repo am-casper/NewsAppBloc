@@ -1,23 +1,43 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
+
 import 'package:news_app_final/News/News_list_item.dart';
 import 'package:news_app_final/News/index.dart';
-import '../data_layer/news.dart';
+
+import 'package:news_app_final/data_layer/news.dart';
+
+List<String> categories = [
+  "business",
+  "entertainment",
+  "general",
+  "health",
+  "science",
+  "sports",
+  "technology"
+];
+// String category = categories.elementAt(0);
 
 class NewsList extends StatefulWidget {
-  const NewsList({super.key});
+  String category;
 
+  NewsList({
+    Key? key,
+    required this.category,
+  }) : super(key: key);
   @override
   State<NewsList> createState() => _NewsListState();
 }
 
 class _NewsListState extends State<NewsList> {
+  late String category;
 
   @override
   void initState() {
     super.initState();
+    category = widget.category;
   }
 
   Widget newsList(NewsState state) {
@@ -29,7 +49,6 @@ class _NewsListState extends State<NewsList> {
         int length = newsBox.length;
         for (int i = 0; i < newsBox.length; i++) {
           News news = newsBox.get(i)!;
-          // print(newsBox.get(i));
           list.add(news);
         }
         return ListView.builder(
@@ -71,24 +90,36 @@ class _NewsListState extends State<NewsList> {
 
   @override
   Widget build(BuildContext context) {
-    String category = "entertainment";
-    final controller = TextEditingController();
     return BlocConsumer<NewsBloc, NewsState>(
       bloc: BlocProvider.of<NewsBloc>(context),
       listener: (context, state) {},
       builder: (context, state) {
         return Column(
           children: [
-            TextFormField(
-              onChanged: (value) {
-                category = value;
-              },
-              controller: controller,
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: "category",
-              ),
-            ),
+            Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: DropdownButton<String>(
+                  value: category,
+                  icon: const Icon(Icons.arrow_downward),
+                  elevation: 16,
+                  style: const TextStyle(color: Colors.deepPurple),
+                  underline: Container(
+                    height: 2,
+                    color: Colors.deepPurpleAccent,
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      category = value!;
+                    });
+                  },
+                  items:
+                      categories.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                )),
             ElevatedButton(
               onPressed: () {
                 state.category = category;
@@ -113,6 +144,4 @@ class _NewsListState extends State<NewsList> {
   void dispose() {
     super.dispose();
   }
-
-
 }

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:equatable/equatable.dart';
 
 import '../data_layer/news.dart';
@@ -16,11 +17,11 @@ class NewsState extends Equatable {
     NewsState({
     this.news = const <News>[],
     this.status = NewsStatus.initial,
-    this.category = "entertainment",
+    required this.category,
   });
 
   @override
-  List<Object> get props => [news, status];
+  List<Object> get props => [news, status, category];
   NewsState copyWith({
     List<News>? news,
     NewsStatus? status,
@@ -44,4 +45,6 @@ class NewsState extends Equatable {
 
   @override
   bool get stringify => true;
+
+  
 }
