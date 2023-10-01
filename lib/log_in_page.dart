@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:news_app_final/force_update.dart';
 
 import 'package:news_app_final/sign_up_page.dart';
 
@@ -60,7 +61,7 @@ class LogInPage extends StatelessWidget {
                 },
                 decoration: const InputDecoration(
                     border: InputBorder.none,
-                    labelText: "Enter your Password",
+                    labelText: "Enter Password",
                     labelStyle: TextStyle(
                       fontSize: 16,
                     )),
@@ -78,7 +79,7 @@ class LogInPage extends StatelessWidget {
                   );
                 },
                 child: const Text(
-                    "Don't have an account? Sign-Up by clicking here!"))
+                    "Don't have an account?"))
           ],
         ),
       ),
@@ -88,6 +89,7 @@ class LogInPage extends StatelessWidget {
 
 // ignore: must_be_immutable
 class SubmitButton extends StatefulWidget {
+  
   BuildContext context;
   SubmitButton({
     Key? key,
@@ -105,6 +107,7 @@ class _SubmitButtonState extends State<SubmitButton> {
   void initState() {
     super.initState();
     context = widget.context;
+    ForceUpdate(context,mounted).checkAndForceUpdate();
   }
   
 
