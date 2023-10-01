@@ -22,6 +22,11 @@ jobs:
             - uses: subosito/flutter-action@v2
               with:
                 channel: "stable"
+            
+            - name: 🚀 Shorebird Patch
+              run: shorebird patch android
+              env:
+                SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
       
             # Setup Shorebird environment for Code Push.
             - uses: shorebirdtech/setup-shorebird@v0
