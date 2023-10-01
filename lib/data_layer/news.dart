@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'package:hive/hive.dart';
 part 'news.g.dart';
+
 @HiveType(typeId: 0)
 class News {
   @HiveField(0)
@@ -39,7 +40,8 @@ class News {
 
   String toJson() => json.encode(toMap());
 
-  factory News.fromJson(String source) => News.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory News.fromJson(String source) =>
+      News.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() => 'News(title: $title, publishedAt: $publishedAt)';
@@ -47,10 +49,8 @@ class News {
   @override
   bool operator ==(covariant News other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.title == title &&
-      other.publishedAt == publishedAt;
+
+    return other.title == title && other.publishedAt == publishedAt;
   }
 
   @override

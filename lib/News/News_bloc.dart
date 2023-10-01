@@ -13,10 +13,7 @@ import 'package:news_app_final/data_layer/repository/news_repository.dart';
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   NewsBloc({required this.newsRepository, required this.category})
       : super(NewsState(category: category)) {
-    on<NewsFetched>(
-        _onNewsFetched
-      
-    );
+    on<NewsFetched>(_onNewsFetched);
     on<NewsRefreshed>(_onNewsRefreshed);
   }
 

@@ -78,8 +78,7 @@ class LogInPage extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text(
-                    "Don't have an account?"))
+                child: const Text("Don't have an account?"))
           ],
         ),
       ),
@@ -89,7 +88,6 @@ class LogInPage extends StatelessWidget {
 
 // ignore: must_be_immutable
 class SubmitButton extends StatefulWidget {
-  
   BuildContext context;
   SubmitButton({
     Key? key,
@@ -107,9 +105,8 @@ class _SubmitButtonState extends State<SubmitButton> {
   void initState() {
     super.initState();
     context = widget.context;
-    ForceUpdate(context,mounted).checkAndForceUpdate();
+    ForceUpdate(context, mounted).checkAndForceUpdate();
   }
-  
 
   logIn(String eMail, String password, BuildContext context) async {
     try {
@@ -145,16 +142,15 @@ class _SubmitButtonState extends State<SubmitButton> {
       } else if (e.code == "network-request-failed") {
         Fluttertoast.showToast(msg: 'No Internet Connectivity.');
         Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (BuildContext context) => NewsPage(
-            category: category,
+          MaterialPageRoute(
+            builder: (BuildContext context) => NewsPage(
+              category: category,
+            ),
           ),
-        ),
-      );
+        );
       } else {
         print(e.code);
       }
-      
     }
   }
 

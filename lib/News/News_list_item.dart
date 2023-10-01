@@ -12,7 +12,8 @@ class NewsListItem extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Material(
       child: ListTile(
-        leading: Text(news.publishedAt.substring(0,10), style: textTheme.bodySmall),
+        leading:
+            Text(news.publishedAt.substring(0, 10), style: textTheme.bodySmall),
         title: Text(news.title),
         isThreeLine: false,
         dense: true,

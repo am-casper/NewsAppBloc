@@ -30,14 +30,13 @@ class ForceUpdate {
         context: context,
         builder: (BuildContext ctx) => AlertDialog(
               title: const Text('Restart'),
-              content: const Text(
-                  'Click on the button below to restart the app'),
+              content:
+                  const Text('Click on the button below to restart the app'),
               actions: <Widget>[
                 TextButton(
                   onPressed: () async {
-                    await Restart.restartApp();
                     Navigator.pop(ctx);
-                  
+                    await Restart.restartApp();
                   },
                   child: const Text('Restart'),
                 ),
@@ -106,7 +105,6 @@ class ForceUpdate {
                   onPressed: () async {
                     Navigator.pop(ctx);
                     await _downloadUpdate();
-                  
                   },
                   child: const Text('Download'),
                 ),

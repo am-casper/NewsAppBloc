@@ -37,7 +37,8 @@ class News extends Equatable {
 
   String toJson() => json.encode(toMap());
 
-  factory News.fromJson(String source) => News.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory News.fromJson(String source) =>
+      News.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() => 'News(title: $title)';
@@ -45,9 +46,8 @@ class News extends Equatable {
   @override
   bool operator ==(covariant News other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.title == title;
+
+    return other.title == title;
   }
 
   @override

@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '101481774756',
     projectId: 'news-app-2bcff',
     storageBucket: 'news-app-2bcff.appspot.com',
-    iosClientId: '101481774756-gv0fims9jo1q9bc4lg7d2b9i9btbfm9q.apps.googleusercontent.com',
+    iosClientId:
+        '101481774756-gv0fims9jo1q9bc4lg7d2b9i9btbfm9q.apps.googleusercontent.com',
     iosBundleId: 'com.example.newsAppFinal',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '101481774756',
     projectId: 'news-app-2bcff',
     storageBucket: 'news-app-2bcff.appspot.com',
-    iosClientId: '101481774756-t37eneama48mj5e20mjb8lnchh8joccd.apps.googleusercontent.com',
+    iosClientId:
+        '101481774756-t37eneama48mj5e20mjb8lnchh8joccd.apps.googleusercontent.com',
     iosBundleId: 'com.example.newsAppFinal.RunnerTests',
   );
 }

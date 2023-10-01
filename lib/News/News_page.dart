@@ -30,7 +30,6 @@ import 'package:news_app_final/data_layer/repository/news_repository.dart';
 
 // ignore: must_be_immutable
 class NewsPage extends StatelessWidget {
-  
   String category;
   NewsPage({
     Key? key,
@@ -39,7 +38,6 @@ class NewsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -60,7 +58,7 @@ class NewsPage extends StatelessWidget {
           newsRepository: NewsRepository(),
           category: category,
         )..add(NewsFetched()),
-        child: NewsList(category:category),
+        child: NewsList(category: category),
       ),
     );
   }

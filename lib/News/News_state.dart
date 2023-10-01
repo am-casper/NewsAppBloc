@@ -14,7 +14,7 @@ class NewsState extends Equatable {
   final List<News> news;
   final NewsStatus status;
   String category;
-    NewsState({
+  NewsState({
     this.news = const <News>[],
     this.status = NewsStatus.initial,
     required this.category,
@@ -45,6 +45,4 @@ class NewsState extends Equatable {
 
   @override
   bool get stringify => true;
-
-  
 }

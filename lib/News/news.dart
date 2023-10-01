@@ -14,5 +14,4 @@ class News {
     required this.title,
     required this.publishedAt,
   });
-
 }
