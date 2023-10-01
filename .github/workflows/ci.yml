@@ -23,14 +23,13 @@ jobs:
               with:
                 channel: "stable"
             
+            # Setup Shorebird environment for Code Push.
+            - uses: shorebirdtech/setup-shorebird@v0
+                
             - name: 🚀 Shorebird Patch
               run: shorebird patch android
               env:
                 SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
-      
-            # Setup Shorebird environment for Code Push.
-            - uses: shorebirdtech/setup-shorebird@v0
-            
             # Get flutter dependencies.
             - run: flutter pub get
       
