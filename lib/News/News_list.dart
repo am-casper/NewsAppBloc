@@ -18,7 +18,6 @@ List<String> categories = [
   "sports",
   "technology"
 ];
-// String category = categories.elementAt(0);
 
 class NewsList extends StatefulWidget {
   String category;
