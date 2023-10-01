@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
@@ -38,7 +37,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         );
       }
     } catch (e) {
-      print(e);
+      // print(e);
       Fluttertoast.showToast(msg: "No Internet Connection");
       emit(state.copyWith(status: NewsStatus.failure));
     }
@@ -59,7 +58,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     emit(state.copyWith(status: NewsStatus.loading));
 
     try {
-      print(state.category);
+      // print(state.category);
       final news = await newsRepository.fetchNews(state.category);
       if (news != null) {
         emit(
@@ -70,7 +69,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         );
       }
     } catch (e) {
-      print(e);
+      // print(e);
       Fluttertoast.showToast(msg: "No Internet Connection");
       emit(state.copyWith(status: NewsStatus.failure));
     }

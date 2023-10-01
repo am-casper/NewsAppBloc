@@ -1,10 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'News/News_page.dart';
+import 'News/news_page.dart';
 import 'log_in_page.dart';
 
 List<String> categories = [
@@ -167,7 +169,6 @@ class _SignUpButtonState extends State<SignUpButton> {
           "category": category,
         });
         Fluttertoast.showToast(msg: 'Signing you Up.');
-        // ignore: use_build_context_synchronously
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) => NewsPage(
@@ -194,7 +195,7 @@ class _SignUpButtonState extends State<SignUpButton> {
             ),
           );
         } else {
-          print(e);
+          // print(e);
         }
       }
     }

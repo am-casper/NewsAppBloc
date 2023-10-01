@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive/hive.dart';
 
-import 'package:news_app_final/News/News_list_item.dart';
+import 'package:news_app_final/News/news_list_item.dart';
 import 'package:news_app_final/News/index.dart';
 
 import 'package:news_app_final/data_layer/news.dart';

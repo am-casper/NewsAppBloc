@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, use_build_context_synchronously
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -8,7 +8,7 @@ import 'package:news_app_final/force_update.dart';
 
 import 'package:news_app_final/sign_up_page.dart';
 
-import 'News/News_page.dart';
+import 'News/news_page.dart';
 
 String text = "Log-In";
 String eMail = '', password = '';
@@ -123,7 +123,6 @@ class _SubmitButtonState extends State<SubmitButton> {
 
       final snapshot = await database.get();
       final category = snapshot.value!.toString();
-      // ignore: use_build_context_synchronously
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (BuildContext context) => NewsPage(
@@ -149,7 +148,7 @@ class _SubmitButtonState extends State<SubmitButton> {
           ),
         );
       } else {
-        print(e.code);
+        // print(e.code);
       }
     }
   }
